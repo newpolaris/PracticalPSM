@@ -128,8 +128,8 @@ technique UseHardwareShadowMap
 {
     pass P0
     {
-        VertexShader = compile vs_2_0 MainVS();
-        PixelShader = compile ps_2_0 MainPS_HW();
+        VertexShader = compile vs_1_1 MainVS();
+        PixelShader = compile ps_1_1 MainPS_HW();
     }
 }
 
@@ -137,7 +137,7 @@ technique UseR32FShadowMap
 {
     pass P0
     {
-        VertexShader = compile vs_2_0 MainVS();
+        VertexShader = compile vs_1_1 MainVS();
         PixelShader = compile ps_2_0 MainPS_R32F();
     }
 }
@@ -146,7 +146,7 @@ technique GenHardwareShadowMap20
 {
     pass P0
     {
-        VertexShader = compile vs_2_0 ShadowMapVS();
+        VertexShader = compile vs_1_1 ShadowMapVS();
         PixelShader = compile ps_2_0 OutputDepthPS();
     }
 }
@@ -155,8 +155,8 @@ technique GenHardwareShadowMap11
 {
     pass P0
     {
-        VertexShader = compile vs_2_0 ShadowMapVS();
-        PixelShader = compile ps_2_0 BlackPS();
+        VertexShader = compile vs_1_1 ShadowMapVS();
+        PixelShader = compile ps_1_1 BlackPS();
     }
 }
 
@@ -165,8 +165,8 @@ technique DrawHardwareShadowMap
 {
     Pass P0
     {
-        VertexShader = compile vs_2_0 QuadVS();
-        PixelShader = compile ps_2_0 DrawShadowPS();
+        VertexShader = compile vs_1_1 QuadVS();
+        PixelShader = compile ps_1_1 DrawShadowPS();
     }
 }
 

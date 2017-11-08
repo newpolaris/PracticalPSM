@@ -182,7 +182,7 @@ HRESULT PracticalPSM::RestoreDeviceObjects(IDirect3DDevice9* m_pd3dDevice)
     // Load our Effect file
     // note: path is relative to MEDIA\ dir
     hr = D3DXCreateEffectFromFile(m_pd3dDevice, GetFilePath::GetFilePath(_T("programs\\PracticalPSM\\PracticalPSM.fx")).c_str(),
-        NULL, NULL, 0, NULL, &m_pEffect, NULL);
+        NULL, NULL, D3DXSHADER_USE_LEGACY_D3DX9_31_DLL, NULL, &m_pEffect, NULL);
     if (FAILED(hr))
     {
         MessageBox(NULL, _T("Failed to load effect file"), _T("ERROR"), MB_OK|MB_SETFOREGROUND|MB_TOPMOST);

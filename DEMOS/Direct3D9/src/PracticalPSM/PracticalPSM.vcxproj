@@ -141,6 +141,8 @@
   <ItemGroup>
     <None Include="..\..\..\..\Media\programs\PracticalPSM\PracticalPSM.fx">
       <FileType>Document</FileType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug Multithreaded DLL|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug Multithreaded DLL|Win32'">2.0</ShaderModel>
     </None>
   </ItemGroup>
   <ItemGroup>
