@@ -56,7 +56,7 @@
 // Direct3D includes
 #include <d3d9.h>
 #include <d3dx9.h>
-#include <dxerr9.h>
+// #include <dxerr9.h>
 
 // DirectSound includes
 #include <mmsystem.h>
@@ -69,10 +69,8 @@
 #include <DXUT/DXUT.h>
 #include <DXUT/DXUTmisc.h>
 #include <DXUT/DXUTenum.h>
-#include <DXUT/DXUTmesh.h>
 #include <DXUT/DXUTgui.h>
 #include <DXUT/DXUTsettingsDlg.h>
-#include <DXUT/DXUTSound.h>
 
 #if defined(DEBUG) | defined(_DEBUG)
 #ifndef V

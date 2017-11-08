@@ -1,5 +1,6 @@
 #define STRICT
 #include "nvafx.h"
+#include "DXUT/SDKmisc.h"
 #include "PracticalPSM.h"
 #include "PracticalPSMApp.h"
 
@@ -24,6 +25,7 @@
 // Entry point to the program. Initializes everything and goes into a message processing 
 // loop. Idle time is used to render the scene.
 //--------------------------------------------------------------------------------------
+void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext );
 INT WINAPI WinMain( HINSTANCE, HINSTANCE, LPSTR, int )
 {
     // Set the callback functions. These functions allow the sample framework to notify
@@ -34,13 +36,13 @@ INT WINAPI WinMain( HINSTANCE, HINSTANCE, LPSTR, int )
     // release all device resources before resetting.  Likewise, if you don't handle the 
     // device created/destroyed callbacks then the sample framework won't be able to 
     // recreate your device resources.
-    DXUTSetCallbackDeviceCreated( OnCreateDevice );
-    DXUTSetCallbackDeviceReset( OnResetDevice );
-    DXUTSetCallbackDeviceLost( OnLostDevice );
-    DXUTSetCallbackDeviceDestroyed( OnDestroyDevice );
+    DXUTSetCallbackD3D9DeviceCreated( OnCreateDevice );
+    DXUTSetCallbackD3D9DeviceReset( OnResetDevice );
+    DXUTSetCallbackD3D9DeviceLost( OnLostDevice );
+    DXUTSetCallbackD3D9DeviceDestroyed( OnDestroyDevice );
     DXUTSetCallbackMsgProc( MsgProc );
     DXUTSetCallbackKeyboard( KeyboardProc );
-    DXUTSetCallbackFrameRender( OnFrameRender );
+    DXUTSetCallbackD3D9FrameRender( OnFrameRender );
     DXUTSetCallbackFrameMove( OnFrameMove );
 
     // Show the cursor and clip it when in full screen
@@ -51,9 +53,9 @@ INT WINAPI WinMain( HINSTANCE, HINSTANCE, LPSTR, int )
     // Initialize the sample framework and create the desired Win32 window and Direct3D 
     // device for the application. Calling each of these functions is optional, but they
     // allow you to set several options which control the behavior of the framework.
-    DXUTInit( true, true, true ); // Parse the command line, handle the default hotkeys, and show msgboxes
+    DXUTInit( true, true, 0, true ); // Parse the command line, handle the default hotkeys, and show msgboxes
     DXUTCreateWindow( L"Advanced Shadow Maps 1.0 (DX9) (HLSL)" );
-    DXUTCreateDevice( D3DADAPTER_DEFAULT, true, 800, 600, IsDeviceAcceptable, ModifyDeviceSettings );
+    DXUTCreateDevice( true, 800, 600 );
 
     // Pass control to the sample framework for handling the message pump and 
     // dispatching render calls. The sample framework will call your FrameMove 
@@ -233,8 +235,8 @@ HRESULT CALLBACK OnCreateDevice( IDirect3DDevice9* pd3dDevice, const D3DSURFACE_
 {
     HRESULT hr;
 
-    V_RETURN( g_DialogResourceManager.OnCreateDevice( pd3dDevice ) );
-    V_RETURN( g_SettingsDlg.OnCreateDevice( pd3dDevice ) );
+    V_RETURN( g_DialogResourceManager.OnD3D9CreateDevice( pd3dDevice ) );
+    V_RETURN( g_SettingsDlg.OnD3D9CreateDevice( pd3dDevice ) );
 
     // Initialize the font
     V_RETURN( D3DXCreateFont( pd3dDevice, 15, 0, FW_BOLD, 1, FALSE, DEFAULT_CHARSET, 
@@ -264,8 +266,8 @@ HRESULT CALLBACK OnResetDevice( IDirect3DDevice9* pd3dDevice,
 {
 	HRESULT hr;
 
-    V_RETURN( g_DialogResourceManager.OnResetDevice() );
-    V_RETURN( g_SettingsDlg.OnResetDevice() );
+    V_RETURN( g_DialogResourceManager.OnD3D9ResetDevice() );
+    V_RETURN( g_SettingsDlg.OnD3D9ResetDevice() );
 
     if( g_pFont )
         V_RETURN( g_pFont->OnResetDevice() );
@@ -315,7 +317,7 @@ HRESULT CALLBACK OnResetDevice( IDirect3DDevice9* pd3dDevice,
 // intended to contain actual rendering calls, which should instead be placed in the 
 // OnFrameRender callback.  
 //--------------------------------------------------------------------------------------
-void CALLBACK OnFrameMove( IDirect3DDevice9* pd3dDevice, double fTime, float fElapsedTime, void* pUserContext )
+void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext )
 {
     g_Camera.FrameMove( fElapsedTime );
 }
@@ -371,7 +373,7 @@ void RenderText()
     // If NULL is passed in as the sprite object, then it will work however the 
     // pFont->DrawText() will not be batched together.  Batching calls will improves performance.
     CDXUTTextHelper txtHelper( g_pFont, g_pTextSprite, 15 );
-    const D3DSURFACE_DESC* pd3dsdBackBuffer = DXUTGetBackBufferSurfaceDesc();
+    const D3DSURFACE_DESC* pd3dsdBackBuffer = DXUTGetD3D9BackBufferSurfaceDesc();
 
     // Output statistics
     txtHelper.Begin();
@@ -621,7 +623,7 @@ void CALLBACK OnGUIEvent( UINT nEvent, int nControlID, CDXUTControl* pControl, v
                 int nextMode = (int)g_HUD.GetComboBox(IDC_PERSORTHO)->GetSelectedData();
                 ChangeModalControls( g_pPSM->m_iShadowType, nextMode );
                 g_pPSM->m_iShadowType = nextMode;
-				PositionModalControls( g_pPSM->m_iShadowType, DXUTGetBackBufferSurfaceDesc() );
+				PositionModalControls( g_pPSM->m_iShadowType, DXUTGetD3D9BackBufferSurfaceDesc() );
 				break;
 			}
 		case IDC_UNITCUBECLIP:
@@ -659,8 +661,8 @@ void CALLBACK OnGUIEvent( UINT nEvent, int nControlID, CDXUTControl* pControl, v
 //--------------------------------------------------------------------------------------
 void CALLBACK OnLostDevice( void* pUserContext )
 {
-    g_DialogResourceManager.OnLostDevice();
-    g_SettingsDlg.OnLostDevice();
+    g_DialogResourceManager.OnD3D9LostDevice();
+    g_SettingsDlg.OnD3D9LostDevice();
 
     if( g_pFont )
         g_pFont->OnLostDevice();
@@ -679,8 +681,8 @@ void CALLBACK OnLostDevice( void* pUserContext )
 //--------------------------------------------------------------------------------------
 void CALLBACK OnDestroyDevice( void* pUserContext )
 {
-    g_DialogResourceManager.OnDestroyDevice();
-    g_SettingsDlg.OnDestroyDevice();
+    g_DialogResourceManager.OnD3D9DestroyDevice();
+    g_SettingsDlg.OnD3D9DestroyDevice();
 
     SAFE_RELEASE(g_pFont);
 }

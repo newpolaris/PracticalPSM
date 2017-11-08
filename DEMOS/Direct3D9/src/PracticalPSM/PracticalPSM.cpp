@@ -33,7 +33,6 @@
 #include <d3dx9math.h>
 #include <d3dx9effect.h>
 #include <d3dx9shader.h>
-#include <DX9SDKSampleFramework/DX9SDKSampleFramework.h>
 #include <shared/GetFilePath.h>
 #pragma warning(disable : 4786)
 #include <vector>
@@ -462,10 +461,11 @@ void PracticalPSM::BuildLSPSMProjectionMatrix()
             std::vector<D3DXVECTOR3> receiverPts;
             std::vector<BoundingBox>::iterator rcvrIt = m_ShadowReceiverPoints.begin();
             receiverPts.reserve(m_ShadowReceiverPoints.size() * 8);
-            while ( rcvrIt++ != m_ShadowReceiverPoints.end() )
+            while ( rcvrIt != m_ShadowReceiverPoints.end() )
             {
                 for ( int i=0; i<8; i++ )
                     receiverPts.push_back( rcvrIt->Point(i) );
+                rcvrIt++;
             }
 
             D3DXVec3TransformCoordArray( &receiverPts[0], sizeof(D3DXVECTOR3), &receiverPts[0], sizeof(D3DXVECTOR3), &lightSpaceBasis, (UINT)receiverPts.size() );

@@ -49,6 +49,7 @@ void    ChangeModalControls( int currMode, int nextMode );
 void    InitApp();
 void    RenderText();
 
+#include "DXUT/DXUTcamera.h"
 //--------------------------------------------------------------------------------------
 // Global Variables
 //--------------------------------------------------------------------------------------

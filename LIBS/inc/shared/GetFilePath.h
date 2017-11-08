@@ -192,6 +192,10 @@ namespace GetFilePath
 	    strMediaPath = strMediaPath.substr(0, strMediaPath.find_last_of(_T("\\/")));
 	    strMediaPath = strMediaPath.substr(0, strMediaPath.find_last_of(_T("\\/")));
 	    strMediaPath = strMediaPath.substr(0, strMediaPath.find_last_of(_T("\\/")));
+	    strMediaPath = strMediaPath.substr(0, strMediaPath.find_last_of(_T("\\/")));
+	    strMediaPath = strMediaPath.substr(0, strMediaPath.find_last_of(_T("\\/")));
+	    strMediaPath = strMediaPath.substr(0, strMediaPath.find_last_of(_T("\\/")));
+	    strMediaPath = strMediaPath.substr(0, strMediaPath.find_last_of(_T("\\/")));
         strMediaPath += _T("\\MEDIA");
 			
 		tstring result;

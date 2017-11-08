@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{e542da9b-c834-49ff-96e6-4af6360bc079}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ce7000f5-691b-40c7-bbf9-0e07a2ef8d5c}</UniqueIdentifier>
+      <Extensions>h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{867e6447-fba2-4e3a-8a2b-4dfde4268373}</UniqueIdentifier>
+      <Extensions>rc;ico</Extensions>
+    </Filter>
+    <Filter Include="Effect Files">
+      <UniqueIdentifier>{41b430f1-42aa-44b7-8902-eb45ebcf8691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Media">
+      <UniqueIdentifier>{19c640ba-7ea1-41e8-8d6c-a965ad028c93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect Files\NewFilter1">
+      <UniqueIdentifier>{ed390bb4-bccd-4815-8260-674b60f73828}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bounding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\NVBScene9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PracticalPSM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PracticalPSMApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\SDKmisc.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\SDKwavefile.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\DXUT.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\DXUTcamera.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\DXUTenum.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\DXUTgui.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\DXUTmisc.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\DXUTres.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\DXUTsettingsdlg.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\DXUTShapes.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\LIBS\inc\DXUT\SDKmesh.cpp">
+      <Filter>Effect Files\NewFilter1</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bounding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameWork.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nvafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\shared\NVBScene9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PracticalPSM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PracticalPSMApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Media\textures\Ui\dxutcontrols.tga">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="nvidia.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Media\models\SambavaRockChunk\Ground-01_bp.dds">
+      <Filter>Media</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Media\models\SambavaRockChunk\Ground-01_bp_normal.dds">
+      <Filter>Media</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Media\models\SambavaRockChunk\Ground-01_df.dds">
+      <Filter>Media</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Media\models\SambavaRockChunk\Stone_01-bp.dds">
+      <Filter>Media</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Media\models\SambavaRockChunk\Stone_01-bp_normal.dds">
+      <Filter>Media</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Media\models\SambavaRockChunk\Stone_01-detail.dds">
+      <Filter>Media</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Media\models\SambavaRockChunk\Stone_01-detail_normal.dds">
+      <Filter>Media</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Media\models\SambavaRockChunk\Stone_01-df.dds">
+      <Filter>Media</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Media\models\ClawBOT\ClawBOT.nvb">
+      <Filter>Media</Filter>
+    </None>
+    <None Include="..\..\..\..\Media\models\SambavaRockChunk\SambavaRockChunk.nvb">
+      <Filter>Media</Filter>
+    </None>
+    <None Include="..\..\..\..\Media\programs\PracticalPSM\PracticalPSM.fx" />
+  </ItemGroup>
+</Project>
